@@ -7,7 +7,7 @@ $(function () {
     });
     $(document).on("click", "button#salvar_contato", function () {
         if (validaDados()) {
-            salvarConato();
+            salvarContato();
         }
     });
     $(document).on("click", "a#confirma_excluir", function () {
@@ -21,7 +21,7 @@ $(function () {
     });
     $(document).on("click", "button#salvar_contato_edicao", function () {
         if (validaDados()) {
-            salvarConatoEdicao();
+            salvarContatoEdicao();
         }
     });
     $(document).on("focus", "input#nome", function () {
@@ -46,7 +46,7 @@ function criarListagemTabela(jsonDados) {
     tabela += '<th scope="col">Telefone</th><th scope="col">E-mail</th>';
     tabela += '<th scope="col">Endereço</th><th scope="col"></th><th scope="col"></th></tr></thead><tbody>';
 
-    $each(
+    $.each(
         jsonDados,
         function (indice, contato) {
             tabela += '<tr>';
@@ -92,7 +92,7 @@ function getFormularioInclusao() {
     form += '<div class="form-group">';
     form += '<label for="endereco" class="col-sm-2 control-label glyphicon glyphicon-home"></label>';
     form += '<div class="col-sm-8">';
-    form += '<textarea class="form-control" rows="3" id="endereco" placeholder="Endereco"</textarea>';
+    form += '<textarea class="form-control" rows="3" id="endereco" placeholder="Endereco"></textarea>';
     form += '</div>';
     form += '</div>';
     form += '<div class="form-group">';
