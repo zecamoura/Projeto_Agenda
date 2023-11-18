@@ -39,10 +39,12 @@ function getListarContato() {
     }, "json");
 }
 
-    function criarListagemTabela(jsonDados){
-        var tabela = '<div class="table-responsive">';
-        tabela += '<table class="table table-hover table-bordered"><thead><tr>';
-        tabela += '<th scope="col">#</th><th scope="col">Nome</th>'
-        tabela += ''
-        tabela += ''
-    }
+function criarListagemTabela(jsonDados) {
+    var tabela = '<div class="table-responsive">';
+    tabela += '<table class="table table-hover table-bordered"><thead><tr>';
+    tabela += '<th scope="col">#</th><th scope="col">Nome</th>'
+    tabela += '<th scope="col">Telefone</th><th scope="col">E-mail</th>'
+    tabela += '<th scope="col">Endereço</th><th scope="col"></th><th scope="col"></th></tr></thead><tbody>';
+
+
+}
