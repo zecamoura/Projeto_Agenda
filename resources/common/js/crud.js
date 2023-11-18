@@ -46,5 +46,50 @@ function criarListagemTabela(jsonDados) {
     tabela += '<th scope="col">Telefone</th><th scope="col">E-mail</th>'
     tabela += '<th scope="col">Endereço</th><th scope="col"></th><th scope="col"></th></tr></thead><tbody>';
 
+    $each(
+        jsonDados,
+        function (indice, contato) {
+            tabela += '<tr>';
+            tabela += '<td>' + contato.id + '</td>';
+            tabela += '<td>' + contato.nome + '</td>';
+            tabela += '<td>' + contato.telefone + '</td>';
+            tabela += '<td>' + contato.email + '</td>';
+            tabela += '<td>' + contato.endereco + '</td>';
 
+            + contato.id
+                + '" class="btn btn-sucess btn-xs"><i class="glyphicon glyphicon-pencil"></i></a></td>;'
+            tabela += '<td><a href="javascript:void(0);" id="confirma_excluir" contato_id="'
+                += contato.id
+                + '" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a></td>;'
+            tabela += '</tr>';
+        });
+
+    tabela += '</tbody></table></div>';
+    $('div#conteudo').html(tabela);
+
+}
+
+function getFormularioInclusao(){
+    var form = '<form class= "form-horizontal">';
+    form +='<div class="form-group">';
+    form +='<label for="nome" class="col-sm-2 control-label glyphicon glyphicon-user"></label>';
+    form +='<div class="col-sm-8">';
+    form +='<input type="text" class="form-control" id="nome" placeholder="Nome*" required>';
+    form +='</div>'
+    form +='</div>'
+    form +='<div class="form-group">';
+    form +=''
+    form +='div class='
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
+    form +=''
 }
