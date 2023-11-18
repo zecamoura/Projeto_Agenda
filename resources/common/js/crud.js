@@ -80,13 +80,13 @@ function getFormularioInclusao() {
     form += '<div class="form-group">';
     form += '<label for="telefone" class="col-sm-2 control-label glyphicon glyphicon-phone"></label>';
     form += '<div class="col-sm-8">';
-    form += '<input type"tel" class="form-control" id="telefone"placeholder="Telefone">';
+    form += '<input type="tel" class="form-control" id="telefone" placeholder="Telefone">';
     form += '</div>';
     form += '</div>';
     form += '<div class="form-group">';
     form += '<label for="email" class="col-sm-2 control-label glyphicon glyphicon-envelope"></label>';
     form += '<div class="col-sm-8">';
-    form += '<input type"email" class="form-control" id="email"placeholder="E-mail">';
+    form += '<input type="email" class="form-control" id="email" placeholder="E-mail">';
     form += '</div>';
     form += '</div>';
     form += '<div class="form-group">';
