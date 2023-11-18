@@ -24,7 +24,25 @@ $(function () {
             salvarConatoEdicao();
         }
     });
-    $(document).on("focus", "input#nome", function(){
+    $(document).on("focus", "input#nome", function () {
         $("input").removeClass('error').next('span').remove();
     });
 });
+function getListarContato() {
+    $('#carregando').show();
+
+    $.post('crud.php', {
+        acao: 'listar_contato'
+    }, function (dados) {
+        criarListagemTabela(dados);
+        $('#carregando').hide();
+    }, "json");
+}
+
+    function criarListagemTabela(jsonDados){
+        var tabela = '<div class="table-responsive">';
+        tabela += '<table class="table table-hover table-bordered"><thead><tr>';
+        tabela += '<th scope="col">#</th><th scope="col">Nome</th>'
+        tabela += ''
+        tabela += ''
+    }
