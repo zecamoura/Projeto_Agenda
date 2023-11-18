@@ -55,7 +55,7 @@ function criarListagemTabela(jsonDados) {
             tabela += '<td>' + contato.telefone + '</td>';
             tabela += '<td>' + contato.email + '</td>';
             tabela += '<td>' + contato.endereco + '</td>';
-
+            tabela +='<td><a href="javascript:void(0);" id="editar_contato" contato_id="'
             + contato.id
                 + '" class="btn btn-sucess btn-xs"><i class="glyphicon glyphicon-pencil"></i></a></td>';
             tabela += '<td><a href="javascript:void(0);" id="confirma_excluir" contato_id="'
