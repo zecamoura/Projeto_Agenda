@@ -55,8 +55,8 @@ function criarListagemTabela(jsonDados) {
             tabela += '<td>' + contato.telefone + '</td>';
             tabela += '<td>' + contato.email + '</td>';
             tabela += '<td>' + contato.endereco + '</td>';
-            tabela +='<td><a href="javascript:void(0);" id="editar_contato" contato_id="'
-            + contato.id
+            tabela += '<td><a href="javascript:void(0);" id="editar_contato" contato_id="'
+                + contato.id
                 + '" class="btn btn-sucess btn-xs"><i class="glyphicon glyphicon-pencil"></i></a></td>';
             tabela += '<td><a href="javascript:void(0);" id="confirma_excluir" contato_id="'
                 += contato.id
@@ -103,4 +103,43 @@ function getFormularioInclusao() {
     form += '</form>';
     $('div#conteudo').html(form);
 
+}
+function salvarContato() {
+    $('#carregando').show();
+    var Contato = new Object();
+    Contato.nome = $('input#nome').val();
+    Contato.telefone = $('input#telefone').val();
+    Contato.email = $('input#email').val();
+    Contato.endereco = $('textarea#endereco').val();
+
+    var contatoJson = JSON.stringify(Contato);
+
+    $.post('crud.php', {
+        acao: 'adicionar_contato',
+        contato: contatoJson
+    }, function (dado) {
+        getListarContato();
+        $('#carregando').hide();
+    }, "json");
+}
+
+function confirmaExclusao(elemento) {
+    $("#excluir_contato_modal").modal("show");
+    $("#excluir_contato_modal input#contato_id").val(
+        $(elemento).attr('contato_id'));
+}
+
+function excluirContato(){
+    var Contato = new Object();
+    Contato.id = $("#excluir_contato_modal input#contato_id").val();
+    
+    var contatoJson = JSON.stringify(Contato);
+
+    $.post('crud.php', {
+        acao : 'excluir_contato',
+        contato : contatoJson
+    }, function(dado){
+        getListarContato();
+        $("#excluir_contato_modal").modal("hide");
+    }, "json");
 }
