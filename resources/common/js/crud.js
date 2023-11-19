@@ -129,17 +129,80 @@ function confirmaExclusao(elemento) {
         $(elemento).attr('contato_id'));
 }
 
-function excluirContato(){
+function excluirContato() {
     var Contato = new Object();
     Contato.id = $("#excluir_contato_modal input#contato_id").val();
-    
+
     var contatoJson = JSON.stringify(Contato);
 
     $.post('crud.php', {
-        acao : 'excluir_contato',
-        contato : contatoJson
-    }, function(dado){
+        acao: 'excluir_contato',
+        contato: contatoJson
+    }, function (dado) {
         getListarContato();
         $("#excluir_contato_modal").modal("hide");
     }, "json");
+}
+
+function getEditarContato(elemento) {
+    var Contato = new Object();
+    Contato.id = $(elemento).attr('contato_id');
+
+    var contatoJson = JSON.stringify(Contato);
+
+    $('#carregando').show();
+
+    $.post('crud.php', {
+        acao: 'buscar_contato',
+        contato: contatoJson
+    }, function (dado) {
+        getFormularioEdicao(dado);
+        $('#carregando').hide();
+    }, "json");
+}
+function getFormularioEdicao(jsonDado) {
+    var form = '<form class="form-horizontal">';
+    $.each(
+        jsonDado,
+        function (indice, contato) {
+            form += '<div class="form-group">';
+            form += '<input type="hidden" id="contato_id" value= "'
+                + contato.id + '">';
+            form += '<label for="nome" class="col-sm-2 control-label glyphicon glyphicon-user"></label>';
+            form += '<div class="col-sm-8">';
+
+
+
+
+
+
+            
+            form += '</div>';
+            form += '<label for="telefone" class="col-sm-2 control-label glyphicon glyphicon-phone"></label>';
+            form += '<input type="tel" class="form-control" id="telefone" placeholder="Telefone">';
+            form += '</div>';
+            form += '</div>';
+            form += '<div class="form-group">';
+            form += '<label for="email" class="col-sm-2 control-label glyphicon glyphicon-envelope"></label>';
+            form += '<div class="col-sm-8">';
+            form += '<input type="email" class="form-control" id="email" placeholder="E-mail">';
+            form += '</div>';
+            form += '</div>';
+            form += '<div class="form-group">';
+            form += '<label for="endereco" class="col-sm-2 control-label glyphicon glyphicon-home"></label>';
+            form += '<div class="col-sm-8">';
+            form += '<textarea class="form-control" rows="3" id="endereco" placeholder="Endereco"></textarea>';
+            form += '</div>';
+            form += '</div>';
+            form += '<div class="form-group">';
+            form += '<div class="col-sm-offset-2 col-dm-10">';
+            form += '<button type="button" id="salvar_contato" class="btn btn-primary">Salvar</button>';
+            form += '</div>';
+            form += '</div>';
+            form += '</form>';
+            $('div#conteudo').html(form);
+
+        } 
+        }
+    )
 }
