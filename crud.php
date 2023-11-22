@@ -74,6 +74,7 @@ switch ($_POST['acao']) {
         try {
             $sql = "delete from contato where id = ?";
             $conexao = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . BANCO, USUARIO, SENHA);
+            $pre = $conexao->prepare ($sql);
             $pre->execute(array(
                 $contato->id
             ));
@@ -109,4 +110,6 @@ switch ($_POST['acao']) {
             }
             break;
 }
+
+exit ();
 ?>
