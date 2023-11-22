@@ -3,7 +3,7 @@
 const SERVIDOR = "localhost:3306";
 const BANCO = "agenda";
 const USUARIO = "root";
-const SENHA = "root";
+const SENHA = "";
 
 if (!isset($_POST['acao'])) {
     print json_encode(0);
@@ -57,7 +57,7 @@ switch ($_POST['acao']) {
                 $contato->nome,
                 $contato->telefone,
                 $contato->email,
-                $contato->endereco,
+                $contato->endereco
 
             ));
             print json_encode($conexao->lastInsertId());
